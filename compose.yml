@@ -1,0 +1,15 @@
+
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - "8000:8000"
+
+  client:
+    build:
+      context: ./client
+    depends_on:
+      - server
+    stdin_open: true
+    tty: true

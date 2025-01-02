@@ -1,0 +1,62 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment directories
+venv/
+env/
+
+# Python dependency files
+*.egg-info/
+*.eggs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Logs and database files
+*.log
+*.db
+*.sqlite3
+
+# Docker files
+*.pid
+*.sock
+docker-compose.override.yml
+
+# IDE settings and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg
+
+# Test coverage
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+
+# FastAPI auto-generated static files
+staticfiles/
+*.html
+
+# Client-side cache
+client/__pycache__/
+client/*.py[cod]
+
+# Server-side cache
+server/__pycache__/
+server/*.py[cod]
+
+# Ignore Docker image layers
+server/.env
+client/.env
