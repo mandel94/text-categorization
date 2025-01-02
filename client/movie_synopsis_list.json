@@ -1,0 +1,103 @@
+[
+    {
+      "key": "The Godfather",
+      "text": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "true_label": "Crime"
+    },
+    {
+      "key": "The Shawshank Redemption",
+      "text": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "true_label": "Drama"
+    },
+    {
+      "key": "The Dark Knight",
+      "text": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+      "true_label": "Action"
+    },
+    {
+      "key": "Pulp Fiction",
+      "text": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+      "true_label": "Crime"
+    },
+    {
+      "key": "Forrest Gump",
+      "text": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold from the perspective of an Alabama man with an extraordinary life story.",
+      "true_label": "Drama"
+    },
+    {
+      "key": "The Matrix",
+      "text": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+      "true_label": "Sci-Fi"
+    },
+    {
+      "key": "Inception",
+      "text": "A thief who enters the dreams of others to steal secrets from their subconscious is given a chance to have his criminal history erased in exchange for implanting an idea into the mind of a CEO.",
+      "true_label": "Sci-Fi"
+    },
+    {
+      "key": "The Silence of the Lambs",
+      "text": "A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer.",
+      "true_label": "Thriller"
+    },
+    {
+      "key": "Titanic",
+      "text": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+      "true_label": "Romance"
+    },
+    {
+      "key": "Schindler's List",
+      "text": "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+      "true_label": "Drama"
+    },
+    {
+      "key": "Gladiator",
+      "text": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+      "true_label": "Action"
+    },
+    {
+      "key": "The Lion King",
+      "text": "A lion prince, Simba, is exiled from his kingdom only to learn the true meaning of responsibility and bravery.",
+      "true_label": "Animation"
+    },
+    {
+      "key": "Interstellar",
+      "text": "A group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "true_label": "Sci-Fi"
+    },
+    {
+      "key": "The Avengers",
+      "text": "Earth's mightiest heroes must come together and learn to fight as a team to stop the villain Loki and his army from subjugating Earth.",
+      "true_label": "Action"
+    },
+    {
+      "key": "The Social Network",
+      "text": "Mark Zuckerberg creates Facebook, but his success leads to personal and legal complications.",
+      "true_label": "Drama"
+    },
+    {
+      "key": "Jurassic Park",
+      "text": "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.",
+      "true_label": "Adventure"
+    },
+    {
+      "key": "The Departed",
+      "text": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
+      "true_label": "Crime"
+    },
+    {
+      "key": "Goodfellas",
+      "text": "The story of Henry Hill and his life in the mob, covering his relationship with his wife, Karen, and his mob partners.",
+      "true_label": "Crime"
+    },
+    {
+      "key": "Casablanca",
+      "text": "Set during World War II, a cynical nightclub owner in Casablanca discovers that his former lover has come back into his life.",
+      "true_label": "Romance"
+    },
+    {
+      "key": "The Wizard of Oz",
+      "text": "Dorothy, a Kansas farm girl, travels over the rainbow to the magical land of Oz to find the Wizard who can help her return home.",
+      "true_label": "Fantasy"
+    }
+  ]
+  

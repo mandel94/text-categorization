@@ -1,216 +1,150 @@
-# **Text Categorization API**
+# Text Categorization API Documentation
 
-A machine-learning-powered API that assigns a given piece of text to the most relevant category from a predefined index. Built for businesses and professionals who need to quickly and accurately categorize content, such as websites, blogs, or other textual data.
+## Overview
+The **Text Categorization API** is a machine-learning-powered API designed to assign a given piece of text to the most relevant category from a predefined index. This service is ideal for businesses and professionals who need to quickly and accurately categorize various content such as websites, blogs, or any textual data.
+
+The service uses state-of-the-art **Natural Language Processing (NLP)** models for categorization and provides easy-to-deploy, containerized solutions.
 
 ---
 
-## **Overview**
-
-The **Text Categorization API** uses state-of-the-art Natural Language Processing (NLP) models to analyze input text and match it to a predefined list of categories. This service is highly customizable, scalable, and containerized for easy deployment. 
-
-### **Key Features**
-- **Text Embeddings**: Processes text using cutting-edge NLP models to understand semantic meaning.
-- **Customizable Methods**: Three different methods for processing text:
-  1. **Chunk-based**: Breaks the text into smaller segments for processing (default).
-  2. **Summarization-based**: Summarizes the text before processing.
-  3. **Full-text**: Processes the entire text without segmentation or summarization.
+## Key Features
+- **Text Embeddings**: Utilizes advanced NLP models to understand the semantic meaning of text.
+- **Customizable Methods**: Three categorization methods are available:
+  - **Chunk-based**: Breaks the text into smaller segments (default method).
+  - **Summarization-based**: Summarizes the text before processing.
+  - **Full-text**: Processes the entire text without segmentation or summarization.
 - **Containerized Architecture**: Fully Dockerized for easy deployment and scaling.
-- **REST API**: Built with FastAPI for fast, asynchronous operations.
+- **REST API**: Fast, asynchronous operations powered by **FastAPI**.
 
 ---
 
-## **How It Works**
+## How It Works
+1. **Define a Category Index**: The API uses a predefined set of categories. Each category is associated with a description or example text.
+    - Example of predefined categories:
+      ```json
+      {
+        "Technology": "Advancements in AI, programming, and computing.",
+        "Health": "Tips and practices for a healthy lifestyle.",
+        "Finance": "Advice on saving, investing, and managing money."
+      }
+      ```
 
-1. **Define a Category Index**: The API uses a predefined set of categories, each associated with a representative description or example text.
-   - Example:
-     ```json
-     {
-       "Technology": "Advancements in AI, programming, and computing.",
-       "Health": "Tips and practices for a healthy lifestyle.",
-       "Finance": "Advice on saving, investing, and managing money."
-     }
-     ```
+2. **Input Text**: The input text can be anything, from blog content to website descriptions.
 
-2. **Process Input Text**: The input text is processed using one of three methods:
-   - **Chunk-based**: Splits the text into smaller segments and averages the embeddings.
-   - **Summarization-based**: Summarizes the text first and then calculates embeddings.
-   - **Full-text**: Uses the full text for embeddings without chunking or summarization.
+3. **Process Input Text**: The input text is processed using one of the following methods:
+   - **Chunk-based**: The text is broken into smaller segments and embeddings are averaged.
+   - **Summarization-based**: The text is summarized before calculating embeddings.
+   - **Full-text**: The entire text is processed as a single unit for embeddings.
 
-3. **Match Text to Category**: Using semantic embeddings, the API calculates the similarity between the input text and each category's description. The category with the highest similarity score is returned.
-
----
-
-## **Getting Started**
-
-### **Prerequisites**
-- Docker and Docker Compose installed on your system.
+4. **Match Text to Category**: Using semantic embeddings, the API calculates the similarity between the input text and each category’s description. The category with the highest similarity score is returned.
 
 ---
 
-### **Setup**
+## Getting Started
 
-#### **1. Clone the Repository**
-```bash
-git clone https://github.com/yourusername/text-categorization-api.git
-cd text-categorization-api
-```
+### Prerequisites
+1. Docker and Docker Compose should be installed on your system.
 
-#### **2. Run the Application Using Docker Compose**
-Build and start the containers:
-```bash
-docker-compose up --build
-```
+### Setup
 
-#### **3. Use the Client**
-The client runs interactively in the terminal. You can provide your text input and select the processing method (default is chunk-based).
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/text-categorization-api.git
+   cd text-categorization-api
+   ```
 
----
+2. **Run the Application Using Docker Compose**:
+   Build and start the containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-## **Using the API**
-
-The API exposes an endpoint to categorize text. Below is the reference for making requests.
-
-### **POST /categorize**
-
-#### **Request**
-- **Body** (JSON):
-  ```json
-  {
-    "text": "Your input text here.",
-    "method": "chunk"  // Optional: "chunk", "summary", or "full" (default is "chunk")
-  }
-  ```
-
-#### **Response**
-- **Success** (HTTP 200):
-  ```json
-  {
-    "category": "Technology"
-  }
-  ```
-- **Error** (HTTP 400):
-  ```json
-  {
-    "detail": "Summarizer must be provided for 'summary' method."
-  }
-  ```
+3. **Use the Client**:
+   The client runs interactively in the terminal. You can input your text and select the processing method (default is chunk-based).
 
 ---
 
-## **Architecture**
+## Using the API
 
-### **Tech Stack**
-- **Backend**: FastAPI for API operations.
-- **Text Processing**: SentenceTransformers for embeddings and HuggingFace Transformers for summarization.
-- **Containerization**: Docker for easy deployment and portability.
+### Client Usage
+The client interacts with the API and categorizes the provided text. It can process text either manually (via input) or from a JSON file containing multiple texts.
 
-### **Directory Structure**
-```plaintext
-project/
-├── server/
-│   ├── app.py                # FastAPI application
-│   ├── categorizer.py        # Text categorization logic
-│   ├── Dockerfile            # Dockerfile for the server
-│   ├── requirements.txt      # Dependencies for the server
-│
-├── client/
-│   ├── client.py             # Interactive client for testing the API
-│   ├── Dockerfile            # Dockerfile for the client
-│   ├── requirements.txt      # Dependencies for the client
-│
-├── docker-compose.yml        # Orchestration for server and client containers
-```
+- **POST /categorize**: This endpoint receives the input text and categorizes it according to the predefined index.
 
----
-
-## **Example Workflow**
-
-### **1. Define Categories**
-Define a list of categories in the `server/app.py` file:
-```python
-INDEX = {
-    "Technology": "Advancements in AI, programming, and computing.",
-    "Health": "Tips and practices for a healthy lifestyle.",
-    "Finance": "Advice on saving, investing, and managing money."
+#### Request Body (JSON):
+```json
+{
+  "text": "Your input text here.",
+  "method": "chunk"  // Optional: "chunk", "summary", or "full" (default is "chunk")
 }
 ```
 
-### **2. Input Text**
-Input:
-```plaintext
-"Artificial intelligence and machine learning are revolutionizing industries worldwide."
-```
-
-### **3. Processing Method**
-Select a method:
-- **Chunk-based** (default)
-- **Summarization-based**
-- **Full-text**
-
-### **4. Output**
-The API assigns the text to the most relevant category:
+#### Response (Success):
 ```json
 {
   "category": "Technology"
 }
 ```
 
+#### Response (Error):
+```json
+{
+  "detail": "Summarizer must be provided for 'summary' method."
+}
+```
+
 ---
 
-## **Development**
+## Client Command-Line Interface (CLI)
 
-### **Run Locally**
+### Description
+The client script categorizes **general text** into predefined categories. The client allows you to either manually input text or read multiple texts from a JSON file for batch processing.
 
-#### **1. Install Server Dependencies**
+### Client Code
+The client code reads from a JSON file containing general text entries. Each entry should have a `text` field containing the text to categorize.
+
+#### Command-line arguments:
+- **`--from-list`**: Path to the JSON file containing a list of texts to categorize.
+- **`--method`**: Categorization method. Options: `chunk`, `summary`, `full`. Default is `chunk`.
+
+### Usage
+
+#### Manually Categorize Text
+Run the following command and input text when prompted:
 ```bash
-cd server
-pip install -r requirements.txt
-```
-
-#### **2. Run the Server**
-```bash
-uvicorn app:app --host 0.0.0.0 --port 8000
-```
-
-#### **3. Test the Client**
-Run the client interactively:
-```bash
-cd client
 python client.py
 ```
 
----
-
-## **Contributing**
-
-We welcome contributions! To contribute:
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes and push them to your fork.
-4. Submit a pull request.
+#### Categorize Text from a JSON File
+To categorize multiple pieces of text from a JSON file:
+```bash
+python client.py --from-list path/to/your/general_texts.json
+```
 
 ---
 
-## **License**
+## Example JSON Structure for `--from-list`:
+The JSON file should contain an array of objects, where each object has a `text` field.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```json
+[
+  {
+    "text": "The rapid advancement of artificial intelligence is transforming industries across the globe."
+  },
+  {
+    "text": "Maintaining a healthy lifestyle involves regular exercise, balanced nutrition, and mental wellness."
+  },
+  {
+    "text": "Financial planning is crucial for managing personal budgets, investments, and savings."
+  }
+]
+```
 
 ---
 
-## **Contact**
+## Docker Compose Example
+The following `docker-compose.yml` file connects the server and client containers:
 
-For any questions or feedback, please open an issue or contact us at [your-email@example.com](mailto:your-email@example.com).
-
----
-
-### **Docker Compose Example**
-
-Here’s how the containers are connected using Docker Compose:
-
-#### **docker-compose.yml**
 ```yaml
 version: '3.8'
 
@@ -234,14 +168,28 @@ services:
 
 ---
 
-## **Common Questions**
+## Common Questions
 
-### **1. What types of text can I use?**
-You can input any text (e.g., blog content, website descriptions, or other textual data) that needs categorization.
+1. **What types of text can I use?**
+   - Any general text (e.g., website descriptions, blog posts, or other textual content) that needs categorization.
 
-### **2. How accurate is the categorization?**
-Accuracy depends on the quality of the index. Use descriptive and representative text for each category in the index to achieve optimal results.
+2. **How accurate is the categorization?**
+   - Accuracy depends on the quality of the predefined category index. Ensure each category is well-described for optimal results.
 
-### **3. Can I add or modify categories?**
-Yes, you can customize the `INDEX` variable in the `server/app.py` file with new categories and descriptions.
+3. **Can I add or modify categories?**
+   - Yes! You can modify or add new categories by editing the `INDEX` variable in the `server/app.py` file.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+## Contact
+
+For questions or feedback, please open an issue or contact us at `your-email@example.com`.
+
+--- 
 
