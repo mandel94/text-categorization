@@ -15,12 +15,12 @@ app = FastAPI()
 categorizer = Categorizer(INDEX)
 summarizer = pipeline("summarization")
 
-class ArticleRequest(BaseModel):
+class TextRequest(BaseModel):
     text: str
     method: str = "chunk"  # chunk, summary, or full
 
 @app.post("/categorize")
-def categorize_article(request: ArticleRequest):
+def categorize_text(request: TextRequest):
     try:
         category = categorizer.assign_category(
             request.text, method=request.method, summarizer=summarizer
